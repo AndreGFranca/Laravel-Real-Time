@@ -4,13 +4,17 @@
 	"clients": [],
 	"database": "redis",
 	"databaseConfig": {
-		"redis": {},
+		"redis": {        
+			"host": "rd",
+			"port": 6379,
+			"connectTimeout": 10000
+		},
 		"sqlite": {
 			"databasePath": "/database/laravel-echo-server.sqlite"
 		}
 	},
 	"devMode": true,
-	"host": null,
+	"host": null,	
 	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
@@ -25,7 +29,7 @@
 	},
 	"apiOriginAllow": {
 		"allowCors": false,
-		"allowOrigin": "",
+		"allowOrigin": "http://localhost:8080",
 		"allowMethods": "",
 		"allowHeaders": ""
 	}
