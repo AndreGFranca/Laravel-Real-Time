@@ -2,13 +2,13 @@ FROM php:7.4.1-apache
 
 USER root
 
-WORKDIR /root
-COPY nodesource_setup.sh ./
+# WORKDIR /root
+# COPY nodesource_setup.sh ./
 # SHELL ["/bin/sh", "-c"] 
-RUN chmod +x nodesource_setup.sh
+# RUN chmod +x nodesource_setup.sh
 
 # CMD ["/nodesource_setup.sh"]
-RUN /bin/bash -c /root/nodesource_setup.sh
+# RUN /bin/bash -c /root/nodesource_setup.sh
 
 WORKDIR /var/www/html
 
@@ -20,8 +20,7 @@ RUN apt-get update && apt-get install -y \
         libonig-dev \
         zip \
         curl \
-        unzip \
-        nodejs \
+        unzip \        
     && docker-php-ext-configure gd \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql \
@@ -41,12 +40,12 @@ COPY composer.json composer.lock ./
 
 RUN composer install --no-scripts --no-autoloader
 
-COPY package.json package-lock.json webpack.mix.js ./
+EXPOSE 8080
 
-RUN npm install
+# RUN npm install
 
-# RUN ls
-
-RUN npm install -g laravel-echo-server
-
-CMD ["laravel-echo-server","start"]
+# COPY package.json package-lock.json webpack.mix.js laravel-echo-server.json .env ./
+# # RUN ls
+# RUN npm install -g laravel-echo-server
+# EXPOSE 8080
+# # CMD ["laravel-echo-server","start","-p","6001"]

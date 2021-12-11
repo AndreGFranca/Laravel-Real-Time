@@ -14,7 +14,7 @@
 		}
 	},
 	"devMode": true,
-	"host": null,	
+	"host": "les",	
 	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
