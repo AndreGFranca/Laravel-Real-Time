@@ -4,14 +4,12 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Cadastre um Produto</div>
-
                     <div class="card-body" >
                         <form id="formulario" v-bind:action="url" v-on:submit.prevent.self @submit="enviarForm">
                             <input class="form-control mt-1" v-model="nomeProduto" name="nomeProduto" placeholder="nomeProduto" type="text">
                             <input class="form-control mt-1" v-model="valorProduto" name="valorProduto"  placeholder="valorProduto" type="text">
                             <button class="btn btn-primary mt-1" type="submit">enviar</button>
                         </form>
-
                     </div>
                 </div>
             </div>

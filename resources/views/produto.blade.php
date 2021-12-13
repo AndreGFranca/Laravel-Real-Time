@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 
-    <example-component url="{{route('apiProdutoStore')}}"></example-component>
+    <form-produto url="{{route('apiProdutoStore')}}"></form-produto>
     <table-produto url="{{route('apiProdutoIndex')}}"></table-produto>
 </div>
 

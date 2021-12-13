@@ -13,7 +13,7 @@ services:
     image: mysql:5.7
     restart: always
     ports: 
-      - "36006:3306"
+      - "3606:3306"
     environment:
       MYSQL_DATABASE: 'teste_final_reativo'      
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
