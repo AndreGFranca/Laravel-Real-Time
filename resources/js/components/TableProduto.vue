@@ -12,7 +12,7 @@
               <td>id</td>
               <td>Nome Produto</td>
               <td>Valor</td>
-              <td>statusButton</td>
+              <td>Actions</td>
             </tr>
           </thead>
           <tbody v-if="produtos">
