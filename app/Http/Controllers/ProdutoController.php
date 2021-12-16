@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\NewProduct;
+use App\Events\UpdateProduct;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -75,9 +76,19 @@ class ProdutoController extends Controller
      * @param  \App\Models\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $produtoEdit = Produto::where('CD_PRODUTO','=',$id)->firstOrFail();        
+        $produtoEdit->NM_PRODUTO = $request->nomeProduto;
+        $produtoEdit->VL_PRODUTO = $request->valorProduto;
+        $produtoEdit->save();
+
+        event(new UpdateProduct($produtoEdit));
+        return $id;
+        // $produto->NM_PRODUTO = $request->nomeProduto;
+        // $produto->VL_PRODUTO = $request->valorProduto;
+        // return $produto;
     }
 
     /**
